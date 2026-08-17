@@ -20,8 +20,8 @@ public:
             long len = q.size();
             long mmin = q.front().second;
             long first,last;
-            for(lio i=0; i<len; i++){
-                int curId = q.front().second - mmin;
+            for(long i=0; i<len; i++){
+                long curId = q.front().second - mmin;
                 TreeNode* node = q.front().first;
                 q.pop();
                 if(i==0) first = curId;
@@ -29,7 +29,7 @@ public:
                 if(node->left) q.push({node->left,curId*2+1});
                 if(node->right) q.push({node->right,curId*2+2});
             }
-            ans = max(ans, last-first+1);
+            ans = max(ans, (int)(last-first+1));
         }
         return ans;
     }
