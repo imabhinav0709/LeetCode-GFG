@@ -1,6 +1,6 @@
 # 📝 222. Count Complete Tree Nodes (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/count-complete-tree-nodes)
+🔗 [Problem Link](https://leetcode.com/problems/count-complete-tree-nodes/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-orange) ![Language](https://img.shields.io/badge/Language-C++-blue)
 
