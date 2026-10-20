@@ -1,6 +1,6 @@
 # 📝 450. Delete Node in a BST (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/delete-node-in-a-bst)
+🔗 [Problem Link](https://leetcode.com/problems/delete-node-in-a-bst/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-orange) ![Language](https://img.shields.io/badge/Language-C++-blue)
 
