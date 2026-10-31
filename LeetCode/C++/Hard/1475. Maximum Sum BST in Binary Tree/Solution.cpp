@@ -13,33 +13,36 @@ class NodeValue{
     public:
         int minNode;
         int maxNode;
-        int maxSize;
+        int maxSum;
 
-        NodeValue(int minNode, int maxNode, int maxSize){
+        NodeValue(int minNode, int maxNode, int maxSum){
             this->minNode = minNode;
             this->maxNode = maxNode;
-            this->maxSize = maxSize;
+            this->maxSum = maxSum;
         }
 };
 class Solution {
 private:
-    NodeValue findlargeSum(TreeNode* node){
+    NodeValue findlargeSum(TreeNode* node, int& ans){
         if(!node) return NodeValue(INT_MAX, INT_MIN, 0);
         
-        auto left = findlargeSum(node->left);
-        auto right = findlargeSum(node->right);
+        auto left = findlargeSum(node->left, ans);
+        auto right = findlargeSum(node->right, ans);
 
         if(left.maxNode < node->val && node->val < right.minNode){
             // it is bst
-            return NodeValue(min(left.minNode, node->val), max(right.maxNode, node->val), left.maxSize + right.maxSize + node->val);
+            int sum = left.maxSum + right.maxSum + node->val;
+            ans = max(ans, sum);
+            return NodeValue(min(left.minNode, node->val), max(right.maxNode, node->val), sum);
         }
 
         // not a bst
-        return NodeValue(INT_MIN, INT_MAX, max(left.maxSize, right.maxSize));
+        return NodeValue(INT_MIN, INT_MAX, max(left.maxSum, right.maxSum));
     }
 public:
     int maxSumBST(TreeNode* root) {
-        int maxSum = findlargeSum(root).maxSize;
+        int maxSum = 0;
+        findlargeSum(root, maxSum);
         return (maxSum >0 ) ? maxSum : 0;
     }
 };
